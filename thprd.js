@@ -1,20 +1,25 @@
-var request = require('request');
-var cheerio = require('cheerio');
-    var url = 'https://www.recreation.gov/permits/Enchantment_Permit_Area/r/wildernessAreaDetails.do?page=detail&contractCode=NRSO&parkId=72280';
+$(document).ready(function(){
+  $.get('https://www.recreation.gov/permits/Enchantment_Permit_Area/r/permitCalendar.do?page=calendar&contractCode=NRSO&parkId=72280', function(response){
+    console.log(response);
+  });
 
-    request(url, (function(err, resp, body) {
-      console.log("here");
-        $ = cheerio.load(body);
-        console.log(body);
-        console.log("past cheerio");
-        // $("content").each(function(){
-        //   $(this).find('h3').each(function(){
-        //     console.log("in find");
-        //   });
-        //
-        // })
-        console.log('end');
-    }));
+
+  });
+
+
+
+    // var url = 'https://www.recreation.gov/permits/Enchantment_Permit_Area/r/permitCalendar.do?page=calendar&contractCode=NRSO&parkId=72280';
+    //
+    // (url, (function(err, resp, body) {
+    //   console.log("here");
+    //   console.log(body);
+    //   console.log("past cheerio");
+    //   $("body").each(function(){
+    //     message = $(this).text();
+    //     console.log("These are some of our results: " + message);
+    //   })
+    //   console.log('end');
+    // }));
     // for (pool in pools) {
     //     var url = 'http://www.thprd.org/schedules/schedule.cfm?cs_id=' + pools[pool];
     //
@@ -29,3 +34,4 @@ var cheerio = require('cheerio');
     //         });
     //     }})(pool));
     // }
+    // .trim().replace(/\s\s+/g, ',').split(',')

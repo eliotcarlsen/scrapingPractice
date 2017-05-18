@@ -1,0 +1,23 @@
+require('chromedriver');
+var webdriver = require('selenium-webdriver');
+var driver = new webdriver.Builder()
+  .forBrowser('chrome')
+  .build();
+
+  var childProcess = require('child_process');
+  var chromedriver = require('chromedriver');
+  var binPath = chromedriver.path;
+
+  var childArgs = [
+    'div'
+  ];
+
+  childProcess.execFile(binPath, childArgs, function(err, stdout, stderr) {
+    $(document).ready(function(){
+        $.get('https://www.recreation.gov/permits/Enchantment_Permit_Area/r/permitCalendar.do?page=calendar&contractCode=NRSO&parkId=72280', function(response){
+          console.log(response);
+        });
+
+
+      });
+  });
